@@ -1,0 +1,366 @@
+:root {
+    var: (--primarycolor)
+}
+
+* {
+    box-sizing: border-box;
+    margin    : 0;
+    padding   : 0;
+}
+
+body {
+    height               : 100vh;
+    overflow-x           : hidden;
+    margin               : 0;
+    font-family          : 'Lustria', sans-serif;
+    display              : grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows   : 10% 45% 45%;
+    grid-template-areas  :
+        "header  section"
+        "main    section"
+        "main    footer";
+}
+
+/* Header */
+header {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-evenly;
+    align-items    : center;
+    grid-area      : header;
+    background     : #FDBC58;
+    padding        : 6px;
+}
+
+p,
+.fa-bars,
+.fa-facebook,
+.fa-instagram {
+    margin: 0;
+}
+
+h2 {
+    padding    : 0;
+    margin     : 0;
+    margin-left: 8px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.fa-facebook,
+.fa-instagram {
+    font-size: 14px;
+    color    : black;
+}
+
+a {
+    text-decoration: none;
+    color          : black;
+}
+
+.burger {
+    cursor: pointer;
+}
+
+.burger div {
+    background-color: rgb(0, 0, 0);
+    width           : 20px;
+    height          : 2px;
+    margin          : 5px;
+    transition      : all 0.5s ease;
+}
+
+/* Left Section */
+
+main {
+    grid-area: main;
+    position : relative;
+}
+
+main img {
+    height    : 100%;
+    width     : 100%;
+    object-fit: cover;
+}
+
+.menu-btn {
+    z-index      : 4;
+    position     : absolute;
+    top          : 50%;
+    left         : 50%;
+    transform    : translate(-50%, -50%);
+    width        : 50%;
+    height       : 50px;
+    border       : white solid 5px;
+    background   : rgba(0, 0, 0, 0.1);
+    color        : white;
+    font-size    : 20px;
+    border-radius: 5px;
+    cursor       : pointer;
+}
+
+.menu {
+    height: 60%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: absolute;
+    /* Stay in place */
+    z-index         : 6;
+    left            : 50%;
+    top             : 50%;
+    transform       : translate(-50%, -50%);
+    background-color: #FDBC58;
+    box-shadow      : 0 5px 10px rgba(0, 0, 0, 0.2);
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 20px;
+    /* Place content 60px from the top */
+    transition: 0.5s ease-in;
+    /* 0.5 second transition effect to slide in the sidenav */
+    display        : flex;
+    flex-direction : column;
+    text-align     : center;
+    justify-content: center;
+
+}
+
+.textcontain {
+    margin-bottom: 50px;
+}
+
+.textcontain h4 {
+    font-size: 20px;
+    margin   : 10px 0;
+}
+
+.textcontain p {
+    margin: 5px 0;
+}
+
+.cross {
+    display   : block;
+    width     : 100%;
+    text-align: right;
+    position  : absolute;
+    top       : 2%;
+    right     : 3%;
+    cursor    : pointer;
+}
+
+/* When menu button is clicked */
+.menuactive {
+    height          : 60%;
+    width           : 40%;
+    position        : absolute;
+    z-index         : 6;
+    left            : 50%;
+    top             : 50%;
+    transform       : translate(-50%, -50%);
+    background-color: #FDBC58;
+    box-shadow      : 0 5px 10px rgba(0, 0, 0, 0.2);
+    overflow-x      : hidden;
+    padding-top     : 20px;
+    transition      : 0.5s ease-in;
+    display         : flex;
+    flex-direction  : column;
+    text-align      : center;
+    justify-content : center;
+}
+.menu-hidden {
+    display: none;
+}
+/* slide in links */
+.sidenav {
+    height          : 95%;
+    width           : 0;
+    position        : fixed;
+    z-index         : 1;
+    bottom          : 0;
+    left            : 0;
+    background-color: #FDBC58;
+    overflow-x      : hidden;
+    padding-top     : 20px;
+    transition      : 0.5s;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding        : 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size      : 25px;
+    color          : #000;
+    display        : flex;
+    flex-direction : column;
+    transition     : 0.3s;
+}
+
+.sidenav-active {
+    height          : 90%;
+    width           : 13%;
+    position        : fixed;
+    z-index         : 8;
+    bottom          : 0;
+    left            : 0;
+    background-color: #FDBC58;
+    overflow-x      : hidden;
+    padding-top     : 20px;
+    transition      : 0.5s;
+
+}
+
+/* Top right area */
+section {
+    grid-area: section;
+}
+
+section img {
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+}
+
+/* Bottom right area */
+footer {
+    grid-area      : footer;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+}
+
+img {
+    height    : 250px;
+    width     : 230px;
+    object-fit: contain;
+}
+
+#flag {
+    height       : 20px;
+    width        : 30px;
+    margin-bottom: 4px;
+
+}
+
+/* Resonsive */
+@media only screen and (max-width:996px) {
+    body {
+        height               : 100vh;
+        margin               : 0;
+        display              : grid;
+        grid-template-columns: 100%;
+        grid-template-rows   : repeat(auto, 4);
+        grid-template-areas  :
+            "header"
+            "main"
+            "section"
+            "footer";
+    }
+
+    section {
+        grid-area: section;
+    }
+
+    main {
+        grid-area: main;
+
+    }
+
+    main img {
+        object-fit     : cover;
+        object-position: 100% 100%;
+    }
+
+    section img {
+        object-fit     : cover;
+        object-position: 100% 20%;
+    }
+}
+
+/* Resonsive */
+
+@media only screen and (max-width:1024px) {
+    body {
+        height               : 100vh;
+        margin               : 0;
+        display              : grid;
+        grid-template-columns: 100%;
+        grid-template-rows   : repeat(auto, 4);
+        grid-template-areas  :
+            "header"
+            "main"
+            "section"
+            "footer";
+    }
+
+    main img {
+        object-fit     : cover;
+        object-position: 100% 100%;
+    }
+
+    section {
+        grid-area: section;
+    }
+
+    section img {
+        object-fit     : cover;
+        object-position: 100% 40%;
+    }
+
+    .sidenav-active {
+        height          : 90%;
+        width           : 100%;
+        position        : fixed;
+        z-index         : 1;
+        bottom          : 0;
+        left            : 0;
+        background-color: #FDBC58;
+        overflow-x      : hidden;
+        padding-top     : 20px;
+        transition      : 0.5s;
+        align-items     : center;
+        text-align      : centerx;
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+    header h2 {
+        font-size: 14px;
+        margin   : 0;
+    }
+
+    header p {
+        font-size: 12px;
+    }
+
+    .fa-facebook .fa-instagram {
+        margin-right: 6px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    header h2 {
+        font-size: 12px;
+        margin   : 0 5ox;
+    }
+
+    header p {
+        font-size : 8px;
+        text-align: right;
+    }
+
+    .fa-facebook {
+        margin-right: 5px;
+    }
+
+    .burger div {
+        background-color: rgb(0, 0, 0);
+        width           : 15px;
+        height          : 2px;
+        margin          : 3px;
+    }
